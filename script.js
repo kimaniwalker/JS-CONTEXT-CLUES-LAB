@@ -1,37 +1,30 @@
 console.log('test');
-document.addEventListener("DOMContentLoaded", function () {
-    
-    //Arrays
 
-    //Friend Array
-    var friendarray = ["Key", "John", "Kaden", "Caleb", "Kev"];
+//Arrays
 
-    //Location Array
-    var locationarray = ["Bham", "Troy", "Montgomery", "Atmore", "Illinois", "Florida", "Tenn", "hwy 280", "Missippi", "Brundidge"];
+//Friend Array
+var friendarray = ["Key", "John", "Kaden", "Caleb", "Kev"];
 
-    //Weapon Array 
-    var weaponarray = ["Knife", "Grenade", "Pencil", "Hammer", "Fist", "gun", "Shotgun", "Pistol", "Rifle", "Table", "Knife2", "Grenade2", "Pencil2", "Hammer2", "Fist2", "gun2", "Shotgun2", "Pistol2", "Rifle2", "Table2"]
+//Location Array
+var locationarray = ["Bham", "Troy", "Montgomery", "Atmore", "Illinois", "Florida", "Tenn", "hwy 280", "Missippi", "Brundidge"];
 
-    accusationlist();
-    function accusationlist() {
-        var i;
-
-        for (i = 1; i < 101; i++) {
+//Weapon Array 
+var weaponarray = ["Knife", "Grenade", "Pencil", "Hammer", "Fist", "gun", "Shotgun", "Pistol", "Rifle", "Table", "Knife2", "Grenade2", "Pencil2", "Hammer2", "Fist2", "gun2", "Shotgun2", "Pistol2", "Rifle2", "Table2"]
 
 
-            var h3 = document.createElement('h3');
-            var h3Text = document.createTextNode('Accusations' + i);
-            h3.appendChild(h3Text);
-            document.body.appendChild(h3);
+for (i = 0; i < 101; i++) {
+    var h3 = document.createElement('h3');
+    var h3Text = document.createTextNode('Accusations' + i);
+    h3.appendChild(h3Text);
+    document.body.appendChild(h3);
 
-            h3.addEventListener("click", function () {
-                alert('I accuse ' + [friendarray] + ', with the ' + [weaponarray] + ' in the ' + [locationarray]);
-            console.log(i);
-            })
-           
-        }
-        
-        
+    h3.addEventListener("click", alertnotice(i, friendarray, locationarray, weaponarray));
+
+
+}
+function alertnotice(i, friendarray, locationarray, weaponarray) {
+    return function () {
+        console.log(i);
+        alert('Accusation ' + i + ' I accuse ' +  friendarray[i%5] + ' with the ' + weaponarray[i%20] + ' in ' + locationarray[i%10])
     }
-
-})
+}
